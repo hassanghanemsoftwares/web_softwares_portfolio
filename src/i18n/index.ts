@@ -20,10 +20,18 @@ i18n
     saveMissing: !isProd,
 
     detection: {
-      order: ['cookie'],
+      order: ['cookie', 'navigator'],
       caches: ['cookie'],
       lookupCookie: 'i18next',
       cookieMinutes: 10080,
+
+      // Add language conversion to handle regional variants
+      convertDetectedLanguage: (lng) => {
+        // Convert regional variants to base language
+        if (lng.startsWith('en')) return 'en';
+        if (lng.startsWith('ar')) return 'ar';
+        return lng;
+      }
     },
 
     interpolation: {
@@ -36,3 +44,6 @@ i18n
   });
 
 export default i18n;
+
+export const SUPPORTED_LANGS = ['en', 'ar'] as const;
+
