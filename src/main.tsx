@@ -8,11 +8,11 @@ import MaintenanceError from './features/Errors/MaintenanceError.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    {/* <ErrorBoundary
+    <ErrorBoundary
       FallbackComponent={MaintenanceError}
       onReset={() => window.location.replace("/")}
-    > */}
+    >
       <App />
-    {/* </ErrorBoundary> */}
+    </ErrorBoundary>
   </StrictMode>
 )
